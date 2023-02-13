@@ -14,5 +14,8 @@ jobs:
       with:
         java-version: 14
 
-    - name: Build project with Maven
+    - name: buildSnapshot
       run: mvn clean install -Dmaven.test.skip=true --update-snapshots --no-transfer-progress
+      
+    - name: buildRelease
+      run: mvn clean release:clean release:prepare release:perform -Dmaven.test.skip=true --batch-mode --update-snapshots --no-transfer-progress
