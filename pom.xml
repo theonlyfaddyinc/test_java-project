@@ -20,7 +20,7 @@
     <scm>
          <url>https://github.com/abinstephen/test_java-project</url>
          <connection>scm:git:https://github.com/abinstephen/test_java-project.git</connection>
-         <developerConnection>scm:git:https://github.com/abinstephen/test_java-projectAdd.git</developerConnection>
+         <developerConnection>scm:git:https://github.com/abinstephen/test_java-project.git</developerConnection>
          <tag>HEAD</tag>
   </scm>     
 
