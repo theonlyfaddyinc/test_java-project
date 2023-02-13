@@ -16,6 +16,13 @@ jobs:
 
     - name: buildSnapshot
       run: mvn clean install -Dmaven.test.skip=true --update-snapshots --no-transfer-progress
-      
+
+    - name: Configure Git user
+      run: |
+        git config user.email "abinstephen@gmail.com"
+        git config user.name "abinstephen"
+    
     - name: buildRelease
       run: mvn clean release:clean release:prepare release:perform -Dmaven.test.skip=true --batch-mode --update-snapshots --no-transfer-progress
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
