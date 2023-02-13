@@ -4,9 +4,7 @@ on: workflow_dispatch
 
 jobs:
   build_and_test:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 14
@@ -14,24 +12,6 @@ jobs:
       with:
         java-version: 14
         
-    - name: maven-settings-xml-action
-      uses: whelk-io/maven-settings-xml-action@v20
-      with:
-        repositories: |
-      [
-        {
-          "id": "central",
-          "name": "Maven Central",
-          "url": "https://repo1.maven.org/maven2",
-          "releases": {
-            "enabled": "true"
-          },
-          "snapshots": {
-           "enabled": "false"
-          }
-        }
-      ]
-       output_file: .m2/settings.xml
     - name: Configure Git user
       run: |
         git config user.email "abinstephen@gmail.com"
