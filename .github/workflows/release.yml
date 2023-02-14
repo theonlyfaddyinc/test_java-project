@@ -45,6 +45,6 @@ jobs:
     #    repositories: '[{ "id": "central", "url": "https://repo1.maven.org/maven2" }]'
     
     - name: buildRelease
-      run: mvn -X  clean release:clean release:prepare release:perform -Dmaven.test.skip=true --batch-mode --update-snapshots --no-transfer-progress
+      run: mvn -X  clean release:clean release:prepare release:perform -Dmaven.test.skip=true --batch-mode --update-snapshots --no-transfer-progress --settings /home/runner/work/test_java-project/test_java-project/.m2/settings.xml
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
