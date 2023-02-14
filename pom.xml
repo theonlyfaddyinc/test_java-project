@@ -4,7 +4,7 @@
     <groupId>com.mkyong.hashing</groupId>
     <artifactId>java-project</artifactId>
     <packaging>jar</packaging>
-    <version>1.14-SNAPSHOT</version>
+    <version>1.14</version>
     <name>java-project</name>
     <url>http://maven.apache.org</url>
 
@@ -19,7 +19,7 @@
          <url>https://github.com/abinstephen/test_java-project</url>
          <connection>scm:git:https://github.com/abinstephen/test_java-project.git</connection>
          <developerConnection>scm:git:https://github.com/abinstephen/test_java-project.git</developerConnection>
-         <tag>HEAD</tag>
+         <tag>java-project-1.14</tag>
   </scm>     
 
     <dependencies>
