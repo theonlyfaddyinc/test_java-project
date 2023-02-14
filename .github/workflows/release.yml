@@ -3,7 +3,7 @@ name: Maven Release
 on: workflow_dispatch
 
 jobs:
-  build_and_test:
+  build_and_release:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
