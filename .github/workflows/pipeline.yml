@@ -9,6 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: Set up JDK 14
       uses: actions/setup-java@v1
       with:
@@ -17,13 +18,15 @@ jobs:
     - name: buildSnapshot
       run: mvn clean install -Dmaven.test.skip=true --update-snapshots --no-transfer-progress
 
-    - name: Configure Git user
-      run: |
-        git config user.email "abinstephen@gmail.com"
-        git config user.name "abinstephen"
-    
-    #- name: buildRelease
-    #  run: mvn clean release:clean release:prepare release:perform -Dmaven.test.skip=true --batch-mode --update-snapshots --no-transfer-progress
-    #  env:
-    #    GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+    - name: Test
+      run: mvn test --update-snapshots --no-transfer-progress 
+      
+    - name: verify
+      run: mvn verify --update-snapshots --no-transfer-progress     
+      
+    - name: deploy
+      run: mvn deploy -Dtest.unit.skipTests=true -Dtest.integration.skipTests=true 
+      
+    - name: deploy
+      run: mvn help:evaluate -Dexpression=project.version --quiet -DforceStdout     
       
