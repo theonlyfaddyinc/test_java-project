@@ -24,9 +24,9 @@ jobs:
     - name: verify
       run: mvn verify --update-snapshots --no-transfer-progress     
       
-    - name: deploy
-      run: mvn deploy -Dtest.unit.skipTests=true -Dtest.integration.skipTests=true 
+    #- name: deploy
+    #  run: mvn deploy -Dtest.unit.skipTests=true -Dtest.integration.skipTests=true 
       
-    - name: deploy
+    - name: evaluate
       run: mvn help:evaluate -Dexpression=project.version --quiet -DforceStdout     
       
