@@ -1,4 +1,4 @@
-name: Maven snapshots
+name: Maven Snapshots
 
 on: push
 
