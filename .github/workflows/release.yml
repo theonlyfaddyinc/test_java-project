@@ -17,28 +17,6 @@ jobs:
         mvn help:effective-settings
         git config user.email "abinstephen@gmail.com"
         git config user.name "abinstephen"
-    - name: maven-settings-xml-action
-      uses: whelk-io/maven-settings-xml-action@v20
-      with:
-       repositories: >
-        [
-            {
-                "id": "central",
-                "name": "Maven Central",
-                "url": "https://repo1.maven.org/maven2",
-                "releases": {
-                    "enabled": "true",
-                    "updatePolicy": "always",
-                    "checksumPolicy": "fail"
-                },
-                "snapshots": {
-                    "enabled": "false",
-                    "updatePolicy": "always",
-                    "checksumPolicy": "fail"
-            }
-            }
-        ]
-       output_file: .m2/settings.xml
        
     - name: maven-settings-xml-action
       uses: whelk-io/maven-settings-xml-action@v20
@@ -47,11 +25,6 @@ jobs:
         plugin_repositories: '[{ "id": "some-plugin-repository", "url": "http://some.plugin.repository.url" }]'
         servers: '[{ "id": "some-server", "username": "some.user", "password": "some.password" }]'       
             
-    #- name: maven-settings-xml-action
-    #  uses: whelk-io/maven-settings-xml-action@v20
-    #  with:
-    #    repositories: '[{ "id": "central", "url": "https://repo1.maven.org/maven2" }]'
-    
     - name: buildRelease
       #run: mvn   clean release:clean release:prepare release:perform -Dmaven.test.skip=true --batch-mode --update-snapshots --no-transfer-progress --settings /home/runner/work/test_java-project/test_java-project/.m2/settings.xml
       run: mvn   clean release:clean release:prepare -Dmaven.test.skip=true --batch-mode --update-snapshots --no-transfer-progress --settings /home/runner/work/test_java-project/test_java-project/.m2/settings.xml
