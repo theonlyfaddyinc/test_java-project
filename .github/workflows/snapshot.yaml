@@ -25,6 +25,9 @@ jobs:
 
     - name: buildSnapshot
       run: mvn clean install -Dmaven.test.skip=true --update-snapshots --no-transfer-progress
+      
+    - name: During build code test
+      run: mvn test --update-snapshots --no-transfer-progress
   Run_Unit_Tests:
     runs-on: ubuntu-latest
     needs: [Build_Code]
