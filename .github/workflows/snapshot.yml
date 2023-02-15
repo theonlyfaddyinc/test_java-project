@@ -13,6 +13,9 @@ jobs:
       with:
         java-version: 14
 
+    - name: Check the JDK java-version
+      run: java --version
+
     - name: buildSnapshot
       run: mvn clean install -Dmaven.test.skip=true --update-snapshots --no-transfer-progress
   Run_Unit_Tests:
@@ -20,6 +23,10 @@ jobs:
     needs: [Build_Code]
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Check the JDK java-version
+      run: java --version
+      
     - name: Test
       run: mvn test --update-snapshots --no-transfer-progress 
       
