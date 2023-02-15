@@ -25,7 +25,7 @@ jobs:
 
     - name: buildSnapshot
       run: mvn clean install -Dmaven.test.skip=true --update-snapshots --no-transfer-progress
-      
+
     - name: During build code test
       run: mvn test --update-snapshots --no-transfer-progress
   Run_Unit_Tests:
@@ -34,7 +34,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - uses: ./actions/setup-jdk-maven
+    - uses: theonlyfaddyinc/devops-standard-library/composite_action/setup-jdk-maven@maven
       with:
         jdk_version: '14'
         maven_version: '3.8.1'
@@ -48,7 +48,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: ./actions/setup-jdk-maven
+    - uses: theonlyfaddyinc/devops-standard-library/setup-jdk-maven@maven
       with:
         jdk_version: '14'
         maven_version: '3.8.1'
