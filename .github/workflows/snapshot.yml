@@ -13,6 +13,11 @@ jobs:
       with:
         java-version: 14
 
+    - name: Set up Maven
+      uses: stCarolas/setup-maven@v4.5
+      with:
+        maven-version: 3.8.0
+
     - name: Check the JDK java-version
       run: | 
             java --version
