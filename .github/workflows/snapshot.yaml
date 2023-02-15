@@ -48,7 +48,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: theonlyfaddyinc/devops-standard-library/setup-jdk-maven@main
+    - uses: theonlyfaddyinc/devops-standard-library/composite_action/setup-jdk-maven@main
       with:
         jdk_version: '14'
         maven_version: '3.8.1'
