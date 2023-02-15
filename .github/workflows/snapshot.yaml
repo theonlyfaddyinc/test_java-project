@@ -44,10 +44,12 @@ jobs:
     needs: [Run_Unit_Tests]
     steps:
     - uses: actions/checkout@v2
-    - name: Check the JDK java-version
-      run: | 
-            java --version
-            mvn --version
+
+    - uses: ./actions/setup-jda-maven
+      with:
+        jdk_version: '14'
+        maven_version: '3.8.1'
+        
     - name: verify
       run: mvn verify --update-snapshots --no-transfer-progress     
       
