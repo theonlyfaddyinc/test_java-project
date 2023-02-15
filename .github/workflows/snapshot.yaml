@@ -31,10 +31,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Check the JDK java-version
-      run: | 
-            java --version
-            mvn --version
+    - uses: ./actions/setup-jdk-maven
+      with:
+        jdk_version: '14'
+        maven_version: '3.8.1'
 
     - name: Test
       run: mvn test --update-snapshots --no-transfer-progress 
@@ -45,11 +45,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: ./actions/setup-jda-maven
+    - uses: ./actions/setup-jdk-maven
       with:
         jdk_version: '14'
         maven_version: '3.8.1'
-        
+
     - name: verify
       run: mvn verify --update-snapshots --no-transfer-progress     
       
