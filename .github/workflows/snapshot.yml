@@ -16,7 +16,7 @@ jobs:
     - name: Set up Maven
       uses: stCarolas/setup-maven@v4.5
       with:
-        maven-version: 3.8.0
+        maven-version: 3.8.1
 
     - name: Check the JDK java-version
       run: | 
